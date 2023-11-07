@@ -157,10 +157,10 @@ for j in dic:
 
 # enonse 22 Mande itilizatè a, tape yon valè... epi verifye si l gen akolad devan ak dèyè.
 entrer =""
-# entrer=input("antrer yon bgy")
-# entrer=entrer.strip()
-# if entrer[0]=="{" and entrer[0]=='}':
-#     print("li gn akolad devan ak dèyè")
+entrer=input("antrer yon bgy")
+entrer=entrer.strip()
+if entrer[0]=="{" and entrer[0]=='}':
+    print("li gn akolad devan ak dèyè")
 
 # enonse 23 Pakouri yon diksyonè, epi afiche tout kle yo.
 
@@ -266,10 +266,37 @@ bs='_'.join(splt)
 
 # enonse 36 Kreye yon fonksyon ki ap separe chak lèt nan yon mo ak yon vigil
 def separe_vigil(chenn):
-    ch=""
+    ch=[]
     for i in chenn:
         if not i ==" ":
-            ch+=i
-            ch+=','
-    print(ch)
+            ch.append(i)
+    a=",".join(ch)
+    # print(a)
 separe_vigil("petit con")
+
+# enonse 37 Kreye yon fonksyon ki ap kripte yon mo, avèk endèks li nan alfabè a. Chak karaktè dwe separe ak yon tirè.
+
+mo='bastien'
+
+def kripte(mo):
+    tb_mo=[]
+    for i in mo:
+        tb_mo.append(str(alphabet.index(i)))
+    rep="-".join(tb_mo)
+    print(rep)
+kripte("Bastien")
+
+# enonse 38 Kreye yon fonksyon ki ap dekripte yon mo ki fèt ak endèks chak lèt nan alfabè a, separe ak yon tirè.
+krip="27-0-18-19-8-4-13"
+def dekripter(krip):
+    dkp=krip.split("-")
+    mo=""
+    for i in dkp:
+        mo+=alphabet[int(i)]
+    print(mo)
+# dekripter(krip)
+# enonse 39 Kreye yon fonksyon ki ap pran 2 paramèt, epi ki pèmite valè yo. Answit li retounen tou 2 valè yo sou fòm Tuple.
+def ma_fonction(param1,param2):
+    tupl=(param2,param1)
+    print(tupl)
+ma_fonction("pierre","samuel")
