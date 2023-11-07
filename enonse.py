@@ -157,10 +157,10 @@ for j in dic:
 
 # enonse 22 Mande itilizatè a, tape yon valè... epi verifye si l gen akolad devan ak dèyè.
 entrer =""
-entrer=input("antrer yon bgy")
-entrer=entrer.strip()
-if entrer[0]=="{" and entrer[0]=='}':
-    print("li gn akolad devan ak dèyè")
+# entrer=input("antrer yon bgy")
+# entrer=entrer.strip()
+# if entrer[0]=="{" and entrer[0]=='}':
+#     print("li gn akolad devan ak dèyè")
 
 # enonse 23 Pakouri yon diksyonè, epi afiche tout kle yo.
 
@@ -205,6 +205,28 @@ for i in a:
     my_dic[i[0]] = i[1]
 # print(my_dic)
 
+# enonse 30 Kole 2 diksyonè ansanm pou fè youn, kote si gen eleman ki gen menm kle ap konkatene valè, swivan kondisyon sa yo:
+
+dict1={"nom":'bastien',"prenom":"ritchy","age":22, "skils":["programmation","reseau","base de donnée"],"my_set":{1, 2, 3, 4, 5,7,6,8,9}}
+
+dict2={"nom":'Saint-Louis',"prenom":"Pudens","age":22, "skils":["coatching","Comptabilité","Administration"],"my_set":{1, 2, 3, 4, 5,12,13,15,16,17,18}}
+
+dict3={}
+for k,v in dict1.items():
+    if k in dict2:
+        if isinstance(v,int) and isinstance(dict2[k],int):
+            dict3[k]=int(v)+int(dict2[k])
+        elif isinstance(v,str) and isinstance(dict2[k],str):
+            dict3[k]=str(v)+","+str(dict2[k])
+        elif isinstance(v,list) and isinstance(dict2[k],list):
+            tp=[]
+            dict3[k]=list(v)+list(dict2[k])
+        elif isinstance(v,set) and isinstance(dict2[k],set):
+            dict3[k]=set([i for i in v]+[j for j in dict2[k]])
+print(dict3)
+
+
+
 
 # enonse 31 kreye yon fonksyon ki ap pran yon paramèt yon mo, epi li retounen envès la.
 
@@ -214,7 +236,7 @@ def retounen_envès(param):
     while i>=0:
         tempon+=param[i]
         i-=1
-    print(tempon)
+    # print(tempon)
 # retounen_envès("bastien")
 
 # enonse 32 kreye yon fonksyon ki pou jenere yon kòd aleyatwa ki gen n karaktè alfabetik.
@@ -225,7 +247,7 @@ def kòd_aleyatwa(n):
         nb=random.randint(0,len(alphabet)-1)
         kod+=alphabet[nb]
         i-=1
-kòd_aleyatwa(10)
+# kòd_aleyatwa(10)
 
 # enonse 33 kreye yon fonksyon ki pou jenere yon kòd aleyatwa ki gen n karaktè alfabetik, san repetisyon.
 alphabet=string.ascii_letters
@@ -236,7 +258,7 @@ def kòd_no_repet(n):
         if not alphabet[nb] in kod:
             kod+=alphabet[nb]
             i-=1
-kòd_no_repet(6)
+# kòd_no_repet(6)
 
 # enonse 34 kreye yon fonksyon ki pou jenere yon kòd aleyatwa ki gen n karaktè alafanimerik, san repetisyon.
 alpha_nimerik=alphabet
@@ -257,7 +279,7 @@ def kòd_no_repet_al_nim(n):
             kod+=digit[nb]
             j-=1
     # print(kod)
-kòd_no_repet_al_nim(25)
+# kòd_no_repet_al_nim(25)
 
 # enonse 35 Ou gen yon lis chenn. Jenere yon SLUG apati chenn nan. Nan yon SLUG, tout karaktè ki akseptab yo se: alfanimerik ak "-"
 chèn="bastien se yon programè"
@@ -272,7 +294,7 @@ def separe_vigil(chenn):
             ch.append(i)
     a=",".join(ch)
     # print(a)
-separe_vigil("petit con")
+# separe_vigil("petit con")
 
 # enonse 37 Kreye yon fonksyon ki ap kripte yon mo, avèk endèks li nan alfabè a. Chak karaktè dwe separe ak yon tirè.
 
@@ -284,7 +306,7 @@ def kripte(mo):
         tb_mo.append(str(alphabet.index(i)))
     rep="-".join(tb_mo)
     print(rep)
-kripte("Bastien")
+# kripte("Bastien")
 
 # enonse 38 Kreye yon fonksyon ki ap dekripte yon mo ki fèt ak endèks chak lèt nan alfabè a, separe ak yon tirè.
 krip="27-0-18-19-8-4-13"
@@ -293,10 +315,22 @@ def dekripter(krip):
     mo=""
     for i in dkp:
         mo+=alphabet[int(i)]
-    print(mo)
+    # print(mo)
 # dekripter(krip)
 # enonse 39 Kreye yon fonksyon ki ap pran 2 paramèt, epi ki pèmite valè yo. Answit li retounen tou 2 valè yo sou fòm Tuple.
 def ma_fonction(param1,param2):
     tupl=(param2,param1)
-    print(tupl)
-ma_fonction("pierre","samuel")
+    # print(tupl)
+# ma_fonction("pierre","samuel")
+
+# enonse 40 Kreye yon fonksyon ki ap pran yon non an paramèt, epi ki retounen inisyal yo. Atansyon ak non konpoze ak tirè yo.
+
+nom="Jean-Ritchy-Bastien papa"
+def return_initial(nom):
+    nom2=nom.replace("-"," ")
+    initial=""
+    nom3=nom2.split(" ")
+    for i in nom3:
+        initial+=i[0].upper()
+    print(initial)
+# return_initial(nom)
